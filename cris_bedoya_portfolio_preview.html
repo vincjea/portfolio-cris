@@ -1,0 +1,253 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  .port{font-family:'Inter',sans-serif;background:oklch(0.965 0.012 85);color:oklch(0.16 0.005 60);font-size:14px;line-height:1.5}
+  .display{font-family:'Archivo Black',sans-serif;font-weight:900;letter-spacing:-0.04em}
+  .mono{font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.2em}
+  .ink{background:oklch(0.12 0.005 60)}
+  .cocoa-bg{background:oklch(0.34 0.035 50)}
+  .bg-eggshell{background:oklch(0.965 0.012 85)}
+  .text-bg{color:oklch(0.965 0.012 85)}
+  .text-cocoa{color:oklch(0.34 0.035 50)}
+  .border-ink{border-color:oklch(0.12 0.005 60)}
+
+  .topbar{height:6px;background:oklch(0.12 0.005 60)}
+  .nav{background:rgba(248,246,240,0.92);border-bottom:2px solid oklch(0.12 0.005 60);padding:12px 24px;display:flex;align-items:center;justify-content:space-between}
+  .nav-logo{font-family:'Archivo Black',sans-serif;font-size:20px;letter-spacing:-0.04em}
+  .nav-links{display:flex;gap:24px;font-size:10px;text-transform:uppercase;letter-spacing:0.18em}
+  .nav-links a{text-decoration:none;color:inherit;opacity:0.8}
+  .nav-cta{background:oklch(0.12 0.005 60);color:oklch(0.965 0.012 85);padding:6px 12px;font-size:9px;text-transform:uppercase;letter-spacing:0.18em;text-decoration:none;border:1px solid oklch(0.12 0.005 60)}
+
+  .section{padding:32px 24px}
+  .section-label{display:inline-flex;align-items:stretch;margin-bottom:16px}
+  .sl-idx{padding:4px 8px;font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.2em;background:oklch(0.12 0.005 60);color:oklch(0.965 0.012 85)}
+  .sl-txt{padding:4px 12px;font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.2em;background:oklch(0.34 0.035 50);color:oklch(0.965 0.012 85)}
+
+  .hero-section{padding:24px 24px 0}
+  .hero-rule{border-bottom:2px solid oklch(0.12 0.005 60);padding-bottom:16px;display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px}
+  .hero-name{font-family:'Archivo Black',sans-serif;font-size:clamp(56px,14vw,96px);line-height:0.88;letter-spacing:-0.04em;margin-bottom:20px}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;border-top:2px solid oklch(0.12 0.005 60);padding-top:16px}
+  .hero-tagline{font-family:'Archivo Black',sans-serif;font-size:18px;line-height:1.2;grid-column:1}
+  .hero-aside{border-left:2px solid oklch(0.34 0.035 50);padding-left:16px;grid-column:2}
+  .hero-aside p{font-size:12px;line-height:1.6;color:oklch(0.42 0.008 70);margin-bottom:12px}
+  .see-work{display:inline-flex;align-items:center;gap:8px;background:oklch(0.12 0.005 60);color:oklch(0.965 0.012 85);padding:8px 14px;font-size:9px;text-transform:uppercase;letter-spacing:0.2em;text-decoration:none}
+
+  .hero-img-wrap{margin:20px 24px 0;border:2px solid oklch(0.12 0.005 60);background:oklch(0.88 0.018 85)}
+  .hero-img-placeholder{height:180px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,oklch(0.85 0.02 80) 0%,oklch(0.75 0.025 75) 100%)}
+  .hero-cap{display:flex}
+  .cap-cell{padding:6px 12px;font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.2em}
+
+  .work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:16px}
+  .work-fig{position:relative}
+  .work-img{border:2px solid oklch(0.12 0.005 60);background:oklch(0.88 0.018 85);overflow:hidden}
+  .work-img div{display:flex;align-items:center;justify-content:center;color:oklch(0.55 0.01 70);font-size:10px;font-family:'JetBrains Mono',monospace}
+  .work-cap{display:flex;font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.18em}
+  .wc-num{padding:5px 8px;background:oklch(0.12 0.005 60);color:oklch(0.965 0.012 85)}
+  .wc-title{flex:1;padding:5px 8px;background:oklch(0.34 0.035 50);color:oklch(0.965 0.012 85)}
+  .wc-meta{padding:5px 8px;border-bottom:2px solid oklch(0.12 0.005 60);font-size:9px}
+
+  .col-span-4{grid-column:span 4}
+  .col-span-8{grid-column:span 8}
+  .col-span-5{grid-column:span 5}
+  .col-span-7{grid-column:span 7}
+
+  .about-grid{display:grid;grid-template-columns:3fr 1fr;gap:16px}
+  .about-tagline{font-family:'Archivo Black',sans-serif;font-size:clamp(18px,4vw,28px);line-height:1.15;margin-bottom:20px}
+  .highlight{background:oklch(0.12 0.005 60);color:oklch(0.965 0.012 85);padding:0 6px}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid oklch(0.12 0.005 60)}
+  .stat{padding:14px;border-right:2px solid oklch(0.12 0.005 60)}
+  .stat:last-child{border-right:0}
+  .stat-label{font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.18em;color:oklch(0.34 0.035 50);margin-bottom:6px}
+  .stat-val{font-family:'Archivo Black',sans-serif;font-size:14px}
+
+  .links-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px}
+  .links-section-label{font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.2em;color:oklch(0.34 0.035 50);margin-bottom:10px}
+  .link-list{border-top:2px solid oklch(0.12 0.005 60);border-bottom:2px solid oklch(0.12 0.005 60)}
+  .link-item{border-bottom:2px solid oklch(0.12 0.005 60);display:flex;align-items:center;justify-content:space-between;padding:12px 0;font-family:'Archivo Black',sans-serif;font-size:16px;cursor:pointer}
+  .link-item:last-child{border-bottom:0}
+  .social-item{border-bottom:2px solid oklch(0.12 0.005 60);display:flex;align-items:center;justify-content:space-between;padding:12px 0;cursor:pointer}
+  .social-item:last-child{border-bottom:0}
+  .social-name{font-family:'Archivo Black',sans-serif;font-size:16px}
+  .social-handle{font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.18em;color:oklch(0.34 0.035 50)}
+
+  .contact-name{font-family:'Archivo Black',sans-serif;font-size:clamp(36px,10vw,64px);line-height:0.95;letter-spacing:-0.03em;margin:16px 0}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr 1fr;border:2px solid oklch(0.12 0.005 60)}
+  .contact-cell{padding:16px;border-right:2px solid oklch(0.12 0.005 60)}
+  .contact-cell:last-child{border-right:0}
+  .contact-cell-label{font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.18em;margin-bottom:8px}
+  .contact-email{font-family:'Archivo Black',sans-serif;font-size:18px;text-decoration:underline;text-decoration-color:oklch(0.34 0.035 50);text-underline-offset:4px}
+
+  footer{margin-top:32px}
+  .footer-stripe{height:6px;background:oklch(0.34 0.035 50)}
+  .footer-body{background:oklch(0.12 0.005 60);color:oklch(0.965 0.012 85);padding:28px 24px;display:flex;align-items:flex-end;justify-content:space-between}
+  .footer-logo{font-family:'Archivo Black',sans-serif;font-size:28px}
+  .footer-copy{font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.18em;opacity:0.5;margin-top:6px}
+  .footer-links{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 16px;font-size:9px;text-transform:uppercase;letter-spacing:0.18em}
+  .footer-links a{color:oklch(0.965 0.012 85);text-decoration:none;opacity:0.7}
+
+  .divider{border:none;border-top:2px solid oklch(0.12 0.005 60);margin:0}
+</style>
+
+<div class="port">
+  <div class="topbar"></div>
+
+  <div class="nav">
+    <span class="nav-logo display">bored<span class="text-cocoa">.</span></span>
+    <div class="nav-links">
+      <a href="#">Work</a><a href="#">About</a><a href="#">Links</a><a href="#">Contact</a>
+    </div>
+    <span class="nav-cta">[Availability — Year]</span>
+  </div>
+
+  <div class="hero-section">
+    <div class="hero-rule">
+      <div class="section-label"><span class="sl-idx">00</span><span class="sl-txt">Index — Selected Works, Years</span></div>
+      <span class="mono text-cocoa">[City A ↔ City B]</span>
+    </div>
+    <div class="hero-name display">[First]<br><span class="text-cocoa">[Last]</span></div>
+    <div class="hero-grid">
+      <div class="hero-tagline">[One or two sentence tagline describing your practice — what you make, the mood, the medium.]</div>
+      <div class="hero-aside">
+        <p>[Short paragraph about what you're currently working on, taking commissions for, or any context about your studio / practice.]</p>
+        <a href="#" class="see-work"><span>↓</span> See the work</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-img-wrap">
+    <div class="hero-img-placeholder">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:oklch(0.55 0.01 70)">hero.jpg — Plate 01</span>
+    </div>
+    <div class="hero-cap">
+      <span class="cap-cell ink text-bg">Plate 01</span>
+      <span class="cap-cell cocoa-bg text-bg" style="flex:1">[Image caption]</span>
+      <span class="cap-cell ink text-bg">[Format · Year]</span>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:32px">
+    <hr class="divider" style="margin-bottom:16px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:16px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="section-label"><span class="sl-idx">01</span><span class="sl-txt">Selected work</span></div>
+        <span class="display" style="font-size:22px">Selected work</span>
+      </div>
+      <span class="mono text-cocoa">7 pieces</span>
+    </div>
+
+    <div class="work-grid">
+      <div class="work-fig col-span-4" style="grid-row:span 2">
+        <div class="work-img" style="height:280px">
+          <div style="height:100%;background:oklch(0.82 0.02 78);display:flex;align-items:center;justify-content:center"><span class="mono" style="color:oklch(0.55 0.01 70)">work-01</span></div>
+        </div>
+        <div class="work-cap"><span class="wc-num">01</span><span class="wc-title">[Work title 01]</span><span class="wc-meta">[Format] · [Year]</span></div>
+      </div>
+      <div class="work-fig col-span-8">
+        <div class="work-img" style="height:120px">
+          <div style="height:100%;background:oklch(0.79 0.018 82);display:flex;align-items:center;justify-content:center"><span class="mono" style="color:oklch(0.55 0.01 70)">work-02</span></div>
+        </div>
+        <div class="work-cap"><span class="wc-num">02</span><span class="wc-title">[Work title 02]</span><span class="wc-meta">[Format] · [Year]</span></div>
+      </div>
+      <div class="work-fig col-span-4">
+        <div class="work-img" style="height:120px">
+          <div style="height:100%;background:oklch(0.84 0.016 88);display:flex;align-items:center;justify-content:center"><span class="mono" style="color:oklch(0.55 0.01 70)">work-03</span></div>
+        </div>
+        <div class="work-cap"><span class="wc-num">03</span><span class="wc-title">[Work title 03]</span><span class="wc-meta">[Format] · [Year]</span></div>
+      </div>
+      <div class="work-fig col-span-4">
+        <div class="work-img" style="height:100px">
+          <div style="height:100%;background:oklch(0.80 0.022 75);display:flex;align-items:center;justify-content:center"><span class="mono" style="color:oklch(0.55 0.01 70)">work-04</span></div>
+        </div>
+        <div class="work-cap"><span class="wc-num">04</span><span class="wc-title">[Work title 04]</span><span class="wc-meta">[Format] · [Year]</span></div>
+      </div>
+      <div class="work-fig col-span-8">
+        <div class="work-img" style="height:100px">
+          <div style="height:100%;background:oklch(0.77 0.02 80);display:flex;align-items:center;justify-content:center"><span class="mono" style="color:oklch(0.55 0.01 70)">work-05</span></div>
+        </div>
+        <div class="work-cap"><span class="wc-num">05</span><span class="wc-title">[Work title 05]</span><span class="wc-meta">[Format] · [Year]</span></div>
+      </div>
+      <div class="work-fig col-span-4">
+        <div class="work-img" style="height:100px">
+          <div style="height:100%;background:oklch(0.83 0.014 85);display:flex;align-items:center;justify-content:center"><span class="mono" style="color:oklch(0.55 0.01 70)">work-06</span></div>
+        </div>
+        <div class="work-cap"><span class="wc-num">06</span><span class="wc-title">[Work title 06]</span><span class="wc-meta">[Format] · [Year]</span></div>
+      </div>
+      <div class="work-fig col-span-4">
+        <div class="work-img" style="height:100px">
+          <div style="height:100%;background:oklch(0.76 0.024 77);display:flex;align-items:center;justify-content:center"><span class="mono" style="color:oklch(0.55 0.01 70)">work-07</span></div>
+        </div>
+        <div class="work-cap"><span class="wc-num">07</span><span class="wc-title">[Work title 07]</span><span class="wc-meta">[Format] · [Year]</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="border-top:2px solid oklch(0.12 0.005 60);padding-top:24px">
+    <div class="section-label"><span class="sl-idx">02</span><span class="sl-txt">About / Colophon</span></div>
+    <div style="margin-top:16px">
+      <div class="about-tagline">[Write a short, personal statement here. Two or three sentences about your approach, why you make the work, and what makes it yours. Highlight a <span class="highlight">key word</span> if you like.]</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-label">Based</div><div class="stat-val display">[City, Country]</div></div>
+        <div class="stat"><div class="stat-label">Working since</div><div class="stat-val display">[Year]</div></div>
+        <div class="stat" style="background:oklch(0.12 0.005 60/0.04)"><div class="stat-label">Formats</div><div class="stat-val display">[Formats]</div></div>
+        <div class="stat" style="background:oklch(0.12 0.005 60/0.04)"><div class="stat-label">Represented by</div><div class="stat-val display">[Agency]</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="border-top:2px solid oklch(0.12 0.005 60);padding-top:24px">
+    <div class="section-label"><span class="sl-idx">03</span><span class="sl-txt">Important links & Elsewhere</span></div>
+    <div class="links-grid">
+      <div>
+        <div class="links-section-label">Important links</div>
+        <div class="link-list">
+          <div class="link-item"><span>[Link 01 — e.g. Showreel]</span><span>↗</span></div>
+          <div class="link-item"><span>[Link 02 — e.g. Press Kit]</span><span>↗</span></div>
+          <div class="link-item"><span>[Link 03 — e.g. Rates]</span><span>↗</span></div>
+          <div class="link-item" style="border-bottom:0"><span>[Link 04 — e.g. Studio]</span><span>↗</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="links-section-label">Elsewhere</div>
+        <div class="link-list">
+          <div class="social-item"><span class="social-name">Instagram</span><span class="social-handle">[@handle]</span></div>
+          <div class="social-item"><span class="social-name">Vimeo</span><span class="social-handle">[username]</span></div>
+          <div class="social-item"><span class="social-name">Letterboxd</span><span class="social-handle">[username]</span></div>
+          <div class="social-item" style="border-bottom:0"><span class="social-name">YouTube</span><span class="social-handle">[Channel name]</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="border-top:2px solid oklch(0.12 0.005 60);padding-top:24px">
+    <div class="section-label"><span class="sl-idx">04</span><span class="sl-txt">Contact</span></div>
+    <div class="contact-name display">Say <span class="text-cocoa">hello.</span></div>
+    <div class="contact-grid">
+      <div class="contact-cell ink text-bg" style="border-right:2px solid oklch(0.12 0.005 60)">
+        <div class="contact-cell-label mono" style="opacity:0.6">Commissions & press</div>
+        <div class="contact-email">[your@email.com]</div>
+      </div>
+      <div class="contact-cell">
+        <div class="contact-cell-label mono text-cocoa">Studio</div>
+        <div style="font-size:12px;line-height:1.7">[Street address]<br>[City, Country]<br><span class="text-cocoa">[Visit policy]</span></div>
+      </div>
+      <div class="contact-cell cocoa-bg text-bg">
+        <div class="contact-cell-label mono" style="opacity:0.7">Direct</div>
+        <div style="font-size:12px;line-height:1.7">[+00 000 000 0000]<br><a href="#" style="color:inherit;text-decoration:underline">Telegram</a> · <a href="#" style="color:inherit;text-decoration:underline">WhatsApp</a></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-stripe"></div>
+    <div class="footer-body">
+      <div>
+        <div class="footer-logo display">bored<span class="text-cocoa">.</span></div>
+        <div class="footer-copy">© 2025 [Your Name] — All images reserved</div>
+      </div>
+      <div class="footer-links">
+        <a href="#">Work</a><a href="#">About</a><a href="#">Links</a><a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+</div>
